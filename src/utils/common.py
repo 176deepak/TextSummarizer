@@ -2,7 +2,7 @@ import os
 import yaml
 from typing import Any
 from pathlib import Path
-from logger import logging
+from src.logger import logging
 from box import ConfigBox
 from ensure import ensure_annotations
 from box.exceptions import BoxValueError

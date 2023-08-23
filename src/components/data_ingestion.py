@@ -1,10 +1,10 @@
 import os
 import zipfile
 from pathlib import Path
-from logger import logging
+from src.logger import logging
 import urllib.request as request
-from utils.common import get_size
-from entity import DataIngestionConfig
+from src.utils.common import get_size
+from src.entity import DataIngestionConfig
 
 
 class DataIngestion:
