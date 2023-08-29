@@ -14,7 +14,7 @@ def index():
         text = "summarize: " + text
         summarized_text = pred_obj.predict(text)
     
-        return render_template('index.html', summarized_text=summarized_text)    
+        return render_template('index.html', input_data=text, summarized_text=summarized_text)    
     
     return render_template('index.html')
 

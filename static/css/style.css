@@ -64,3 +64,7 @@ button{
     text-align: left;
     padding: 0.5%;
 }
+
+button:hover{
+    cursor:pointer;
+}
