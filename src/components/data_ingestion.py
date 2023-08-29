@@ -1,8 +1,8 @@
 import os
 import zipfile
+import gdown
 from pathlib import Path
 from src.logger import logging
-import urllib.request as request
 from src.utils.common import get_size
 from src.entity import DataIngestionConfig
 
@@ -12,15 +12,18 @@ class DataIngestion:
         self.config = config
 
     def download_file(self):
-        if not os.path.exists(self.config.local_data_file):
-            filename, headers = request.urlretrieve(
-                url=self.config.source_URL, filename=self.config.local_data_file
-            )
-            logging.info(f"{filename} download! with following info: \n{headers}")
-        else:
-            logging.info(
-                f"File already exists of size: {get_size(Path(self.config.local_data_file))}"
-            )
+        with open(self.config.local_data_file, 'w') as f:
+            pass
+
+        dataset_url = self.config.source_URL
+
+        file_id = dataset_url.split('/')[-2]
+        prefix = 'https://drive.google.com/uc?/export=download&id='
+        gdown.download(prefix+file_id,self.config.local_data_file)
+
+        logging.info(f"Downloaded data from {dataset_url} into file {self.config.local_data_file}")
+
+        
 
     def extract_zip_file(self):
         """

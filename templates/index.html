@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summarizer</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/style.css')}}">
+</head>
+<body>
+    <div class="container">
+        <div class="block1">
+            <h1>Summarize your Long Text</h1>
+        </div>
+        <div class="block2">
+            <div class="Summarizer">
+                <form id="summarize-form" style="height: 100%;" method="post">
+                    <textarea name="inputText" id="text-input"></textarea>
+                    <button type="submit">summarize</button>
+                </form>
+            </div>
+            <div class="summarized">
+                <p class="summarized-text">
+                    {{summarized_text}}
+                </p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

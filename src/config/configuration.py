@@ -70,33 +70,28 @@ class ConfigurationManager:
         model_trainer_config = ModelTrainerConfig(
             root_dir=config.root_dir,
             data_path=config.data_path,
+            learning_rate=2e-3,
             model_ckpt = config.model_ckpt,
-            num_train_epochs = params.num_train_epochs,
-            warmup_steps = params.warmup_steps,
-            per_device_train_batch_size = params.per_device_train_batch_size,
-            weight_decay = params.weight_decay,
-            logging_steps = params.logging_steps,
-            evaluation_strategy = params.evaluation_strategy,
-            eval_steps = params.evaluation_strategy,
-            save_steps = params.save_steps,
-            gradient_accumulation_steps = params.gradient_accumulation_steps
+            num_train_epochs=1,
+            per_device_train_batch_size=20,
+            weight_decay=0.01,
+            evaluation_strategy='epoch',  
         )
 
         return model_trainer_config
-    
 
-    # def get_model_evaluation_config(self) -> ModelEvaluationConfig:
-    #     config = self.config.model_evaluation
+#     # def get_model_evaluation_config(self) -> ModelEvaluationConfig:
+#     #     config = self.config.model_evaluation
 
-    #     create_directories([config.root_dir])
+#     #     create_directories([config.root_dir])
 
-    #     model_evaluation_config = ModelEvaluationConfig(
-    #         root_dir=config.root_dir,
-    #         data_path=config.data_path,
-    #         model_path = config.model_path,
-    #         tokenizer_path = config.tokenizer_path,
-    #         metric_file_name = config.metric_file_name
+#     #     model_evaluation_config = ModelEvaluationConfig(
+#     #         root_dir=config.root_dir,
+#     #         data_path=config.data_path,
+#     #         model_path = config.model_path,
+#     #         tokenizer_path = config.tokenizer_path,
+#     #         metric_file_name = config.metric_file_name
            
-    #     )
+#     #     )
 
-    #     return model_evaluation_config
+#     #     return model_evaluation_config
